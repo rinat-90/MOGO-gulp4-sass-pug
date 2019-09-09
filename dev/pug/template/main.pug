@@ -1,0 +1,40 @@
+include ../utils/mixins
+block variables
+
+doctype html
+html
+	head(lang='en')
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		link(rel="stylesheet" type='text/css' href="static/css/styles.min.css")
+		link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' integrity='sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1' crossorigin='anonymous')
+		link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,500,500i&display=swap' rel='stylesheet')
+		<!--[if lt IE 9]>
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
+		<![endif]-->
+	body(class=pageClass)
+		include ../modules/header/header
+		.content
+			include ../modules/sections/about
+			include ../modules/sections/stats
+			include ../modules/sections/services
+			include ../modules/sections/design
+			include ../modules/sections/service
+			include ../modules/sections/quotes
+			include ../modules/sections/team
+			include ../modules/sections/sponsors
+			include ../modules/sections/works
+			include ../modules/sections/clients
+			include ../modules/sections/blog
+			include ../modules/sections/map
+			block content
+		include ../modules/footer/footer
+		script(src="static/js/jquery-3.3.1.min.js")
+		script(src="static/js/libs.min.js")
+		script(src="static/js/main.js")
+		block script

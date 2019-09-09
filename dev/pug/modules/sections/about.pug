@@ -1,0 +1,12 @@
+section.about
+    .wrapper
+        +heading('what we do', 'story about us')
+        .col-12
+            each val, index in { 1: 'super team', 2: 'fast work', 3: 'best design' }
+                .col-4
+                    .i-img-wrap
+                        img.responsive(src= imgPath + 'pic-'+ index +'.png' alt='pic')
+                        .item-title
+                            i.fa.fa-users
+                            br
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;#{val}

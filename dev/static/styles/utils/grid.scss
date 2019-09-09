@@ -1,0 +1,198 @@
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: split,
+  container: 1170px,
+  global-box-sizing: content-box,
+  debug: (
+     image:  show,
+     color: rgba(#66f, .5),
+     opacity: 50,
+     output: overlay,
+     toggle: top right
+  )
+);
+
+
+.wrapper{
+   @include container;
+   position: relative;
+}
+
+
+.col-4{
+  @include span(4);
+
+  @include breakpoint(mobileonly){
+     @include span(12);
+     margin-top: 30px;
+  }
+}
+
+.col-6{
+   @include span(6);
+
+   @include breakpoint(mobileonly){
+      @include span(12);
+      margin-top: 30px;
+   }
+}
+
+.col-12{
+  @include span(12);
+}
+
+.logo{
+   @include span(3);
+   position: relative;
+
+   @include breakpoint(mobileonly){
+      @include span(12);
+   }
+   @include breakpoint(phablet){
+      @include span(12);
+   }
+   @include breakpoint(laptop){
+      @include span(3);
+   }
+}
+.menu{
+   @include span(9);
+
+   @include breakpoint(mobileonly){
+      display: none;
+   }
+   @include breakpoint(phablet){
+      display: none;
+   }
+   @include breakpoint(laptop){
+      display: block;
+   }
+}
+
+
+
+.text-wrap{
+   @include span(10);
+   @include pad(1);
+   text-align: center;
+}
+
+//refactor styles below
+.headings {
+   @include span(10);
+   @include pad(1);
+   @include break;
+
+   @include breakpoint(mobileonly){
+      @include span(12);
+      @include pad(0);
+   }
+   @include breakpoint(phablet){
+      @include span(12);
+      @include pad(0);
+   }
+
+   @include breakpoint(laptop){
+      @include span(10);
+      @include pad(1);
+   }
+}
+
+
+.about{
+  .items{
+     @include breakpoint(mobileonly){
+        @include span(10);
+        @include pad(1);
+     }
+  }
+}
+
+.stats{
+  .item{
+     @include span(2 wider);
+  }
+}
+
+
+
+.slider{
+   @include span(12);
+}
+.slide-img{
+   @include span(3);
+}
+.slide-text{
+   @include span(8 wider);
+}
+
+.sponsors{
+  .s-logo{
+     @include span(2);
+
+     @include breakpoint(mobileonly){
+        @include span(4);
+     }
+  }
+}
+
+.clients{
+
+  .avatar{
+     @include span(3);
+
+     @include breakpoint(mobileonly){
+        @include span(4);
+     }
+  }
+  .info{
+     @include span(9);
+
+     @include breakpoint(mobileonly){
+        @include span(8);
+     }
+  }
+}
+
+
+footer{
+  .col-4{
+     .col-4{
+        @include breakpoint(mobileonly){
+           @include span(4);
+           margin-top: 0;
+        }
+     }
+  }
+}
+
+
+.list-item{
+  .item-img{
+     @include span(4);
+  }
+
+  .item-desc{
+     @include span(8);
+  }
+}
+
+.gallery-grid{
+   $map: layout(12 .25 inside);
+
+   @include layout($map fluid no-gutters);
+   @include break;
+
+
+   .grid-item{
+      @include span(3);
+
+      @include breakpoint(mobileonly){
+         @include span(6);
+      }
+   }
+}
+

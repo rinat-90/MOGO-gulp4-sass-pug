@@ -1,0 +1,205 @@
+@function em($pixels, $context: 16) {
+  @return #{$pixels/$context}em;
+}
+
+@function color($color) {
+  @if type-of($color) != string {
+    @warn "Not a String `#{$color}` ";
+    @return false;
+  } @else{
+    @return map-get($colors, $color);
+  }
+}
+
+
+
+@mixin circle($size, $color) {
+  @include size($size);
+  border: 2px solid $color;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  @content;
+
+}
+
+@mixin iconSet($list, $size, $path) {
+  @for $i from 1 through length($list) {
+    .#{nth($list, $i)} {
+      @include size($size);
+      background: url('../../static/images/content/#{nth($list, $i)}.#{$path}');
+      background-repeat: no-repeat;
+      background-position: center center;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+
+@mixin active($color) {
+  &.active{
+    color: $color;
+    @content;
+  }
+}
+
+
+@mixin size($width, $height: $width){
+  width: $width;
+  height: $height;
+}
+
+
+@mixin font($font-size: 16, $font-family: 'Open Sans', $font-weight: normal, $color: #000) {
+  font-size: em($font-size);
+  font-family: $font-family, sans-serif;
+  font-weight: $font-weight;
+  color: $color;
+}
+@mixin tran($property: all, $direction: .5s, $time: ease) {
+  transition: $property $direction $time;
+}
+@mixin hover($color: null){
+  &:hover{
+    color: $color;
+    @content;
+  }
+}
+
+@mixin psev($class, $size) {
+  @if $class == 'after'{
+    &:after{
+      @include size($size);
+      content: '';
+      position: absolute;
+      display: block;
+      @content;
+    }
+  }@else if $class == 'before'{
+    &:before{
+      @include size($size);
+      content: '';
+      position: absolute;
+      display: block;
+      @content;
+    }
+  }
+}
+
+@mixin child($child){
+  @if type-of($child) == number{
+    &:nth-child(#{$child}){
+      @content;
+    }
+  }@else if $child == 'first' {
+    &:first-child{
+      @content;
+    }
+
+  }@else if $child =='last'{
+    &:last-child{
+      @content;
+    }
+  }
+}
+
+@mixin selector-child($child, $tag: null){
+  @if $tag{
+    #{$tag}{
+      @if type-of($child == number){
+        &:nth-child(#{$child}){
+          @content;
+        }
+      }@else if $child == 'first' {
+        &:first-child{
+          @content;
+        }
+      }@else if $child =='last'{
+        &:last-child{
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin li-icon($icon){
+  &:before{
+    @include size(25px);
+    content: '';
+    display: inline-block;
+    background-image: url(../img/#{$icon}.svg);
+    background-repeat: no-repeat;
+    margin: 5px;
+    vertical-align: bottom;
+  }
+}
+
+
+
+
+@mixin overlay($top-color, $bottom-color) {
+  background-image: linear-gradient( 90deg, $top-color 0%, $bottom-color 100%);
+}
+
+
+@mixin underline($type, $color: color('accent') ) {
+
+  @if type-of($type == 'string'){
+    @if $type == 'under' {
+      &:after{
+        content: '';
+        position: absolute;
+        display: inline-block;
+        text-align: center;
+        @include size(40px,3px);
+        background-color: $color;
+        bottom: -20px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+    } @else if $type == 'left'{
+      &:before{
+        content: '';
+        position: absolute;
+        display: inline-block;
+        text-align: center;
+        @include size(40px,3px);
+        background-color: $color;
+        left: 10px;
+        bottom: 15px;
+      }
+
+    }@else {
+      @warn 'You entered invalid type of date `#{$type}` ';
+    }
+  }
+
+}
+
+
+
+
+
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $desktop) { @content ; }
+  }
+  @else if $point == laptop {
+    @media (min-width: $laptop) { @content ; }
+  }
+  @else if $point == tablet {
+    @media (min-width: $tablet) { @content ; }
+  }
+  @else if $point == phablet {
+    @media (min-width: $phablet)  { @content ; }
+  }
+  @else if $point == mobileonly {
+    @media (max-width: $mobileonly )  { @content ; }
+
+  }
+}

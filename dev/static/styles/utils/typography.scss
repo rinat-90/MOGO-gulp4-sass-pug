@@ -1,0 +1,82 @@
+$fz: 120, 30, 24, 14, 12, 10;
+@for $i from 1 through length($fz) {
+  h#{$i}{
+    @include font(nth($fz, $i), 'Montserrat', 700, color('dark'));
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+h1.main-heading{
+  line-height: 140px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0;
+  //@include underline('under', #fff);
+
+  @include breakpoint(mobileonly){
+    font-size: em(60);
+    line-height: 85px;
+  }
+}
+
+h2{
+  text-transform: uppercase;
+  position: relative;
+  @include underline('under');
+}
+
+h3{
+  margin-bottom: 0;
+}
+
+.quote-author{
+  text-align: left;
+  margin-left: 60px;
+  @include underline('left');
+}
+
+h4{
+  color: color('dark');
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.subhead{
+  font-family: 'KaushanScript-Regular';
+  &:first-letter{
+    text-transform: capitalize;
+  }
+}
+
+.headings .subhead{
+  font-size: em(72);
+  color: #fff;
+
+  @include breakpoint(mobileonly){
+    font-size: em(40);
+    line-height: 55px;
+    margin-bottom: 30px;
+    margin-top: 20%;
+  }
+}
+.lg{
+  font-size: em(30);
+  line-height: 48px;
+  text-align: left;
+  color: #fff;
+  margin: 0;
+  display: inline-block;
+}
+
+a{
+  text-decoration: none;
+}
+p{
+  @include font(15, 'Roboto', 400, color('gray'));
+  font-style: italic;
+  margin-top: 0;
+}

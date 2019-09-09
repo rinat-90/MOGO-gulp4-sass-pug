@@ -1,0 +1,58 @@
+- var icons = ['facebook', 'twitter', 'pinterest-p', 'dribbble', 'youtube-play', 'tumblr'];
+footer
+    .wrapper
+        .col-12
+            .col-4
+                h3.lg MoGo
+                p.info-text
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero beatae sit adipisci! Aspernatur exercitationem dolore ratione, neque dolor !
+                .followers
+                    h4
+                        | 15k
+                        span followers
+                ul.social
+                    li Follow Us:
+                    each icon in icons
+                        li
+                            a(href='#')
+                                i(class='fa fa-' + icon)
+                form(action='#')
+                    input(type='text' placeholder='Your Email...')
+                    button(type='submit') subscribe
+            .col-4
+                h4 blog
+                ul.blog-list
+                    li.list-item.row
+                        .item-img
+                            .item-img-wrap
+                                img.responsive(src=imgPath + 't-item3.png' alt='')
+                        .item-desc
+                            .item-desc-inner
+                                h5 Lorem ipsum dolor sit amet, consectetur adipisicing.
+                                span.desc Jan 9, 2016
+                    li.list-item.row
+                        .item-img
+                            .item-img-wrap
+                                img.responsive(src=imgPath + 'c-item3.png' alt='')
+                        .item-desc
+                            .item-desc-inner
+                                h5 Lorem ipsum dolor sit amet, consectetur adipisicing.
+                                span.desc Jan 9, 2016
+                    li.list-item.row
+                        .item-img
+                            .item-img-wrap
+                                img.responsive(src=imgPath + 'g-item1.png' alt='')
+                        .item-desc
+                            .item-desc-inner
+                                h5 Lorem ipsum dolor sit amet, consectetur adipisicing.
+                                span.desc Jan 9, 2016
+            .col-4
+                h4 instagram
+                .col-12
+                    - for(var i = 1; i <= 9; i++)
+                        .col-4.insta-img
+                            img.responsive(src=imgPath + 't-item' + i + '.png' alt='')
+                    span.desc View more photos
+        .col-12.copyright
+            | &copy; 2016 MoGo free PSD template by
+            span Laaqiq

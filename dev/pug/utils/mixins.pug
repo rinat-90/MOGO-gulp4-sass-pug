@@ -1,0 +1,16 @@
+mixin icon(name,mod)
+	if(mod)
+		svg(class="svg-sprite-icon icon-" + name + ' ' + mod)
+			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
+	else
+		svg(class="svg-sprite-icon icon-" + name)
+			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
+
+
+
+mixin heading(subtitle, title)
+	h3.subhead= subtitle
+		h2= title
+		.text-wrap.mb
+			p
+				| Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

@@ -1,0 +1,24 @@
+-var links = ['about', 'services', 'work', 'blog', 'contact', 'cart', 'search']
+
+header
+    .wrapper
+        nav.navigavion
+            .logo
+                h1.lg MoGo
+            ul.menu
+
+                each link in links
+                    if link === "cart" || link === "search"
+                        li
+                            span(class = link)
+                    else
+                        li
+                            a(href='#') #{link}
+
+            a#togle-btn.togle-menu(href='#')
+                i.fa.fa-bars(aria-hidden='true')
+            .row.responsive-menu
+        .headings-wrap
+            .headings
+                h3.subhead creative Template
+                h1.main-heading Welcome to MoGo

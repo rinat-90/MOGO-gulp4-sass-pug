@@ -1,0 +1,30 @@
+.navigavion{
+  padding-top: 30px;
+}
+
+.menu{
+  text-align: right;
+  line-height: 48px;
+
+  li{
+    display: inline-block;
+    margin: 0 20px;
+    @include child('last'){
+      margin: 0;
+    }
+
+    @include iconSet(('cart', 'search'), 20px, 'png');
+
+    a{
+      @include tran(color, .5s, ease);
+      @include tran(border, .5s, ease);
+      @include font(14, "Montserrat", normal, #fff);
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      color: #fff;
+      @include hover(color('secondary')){
+        border-bottom: 2px solid color('secondary');
+      }
+    }
+  }
+}
