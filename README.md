@@ -1,3 +1,3 @@
 # mogo landing page project
-tools used `Gulp` + `Pug` + `SCSS` + `BrowserSync` `Susy`
+tools used `Gulp` + `Pug` + `SCSS` + `BrowserSync` + `Susy`
 
